@@ -1,0 +1,28 @@
+﻿@page
+@model BoilerApp.Pages.DataEntryModel
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Enter Data</title>
+</head>
+<body>
+    <h2>Enter Boiler Data</h2>
+    <form method="post">
+        <label for="Temperature">Temperature (°C):</label>
+        <input type="number" id="Temperature" name="Temperature" required><br><br>
+
+        <label for="Pressure">Pressure (Bar):</label>
+        <input type="number" id="Pressure" name="Pressure" required><br><br>
+
+        <button type="submit">Submit</button>
+    </form>
+
+    @if (Model.DataEntered)
+    {
+        <p style="color:green;">Data saved successfully!</p>
+    }
+</body>
+</html>

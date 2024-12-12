@@ -1,0 +1,48 @@
+﻿@page
+@model BoilerApp.Pages.GraphsModel
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Boiler Data Graph</title>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+    <h2>Boiler Temperature and Pressure Graphs</h2>
+
+    <canvas id="temperaturePressureChart" width="400" height="200"></canvas>
+
+    <script>
+        var ctx = document.getElementById('temperaturePressureChart').getContext('2d');
+        var temperaturePressureChart = new Chart(ctx, {
+            type: 'line',
+            data: {
+                labels: @Html.Raw(Model.Timestamps),
+                datasets: [{
+                    label: 'Temperature (°C)',
+                    data: @Html.Raw(Model.TemperatureData),
+                    borderColor: 'rgb(255, 99, 132)',
+                    fill: false
+                }, {
+                    label: 'Pressure (Bar)',
+                    data: @Html.Raw(Model.PressureData),
+                    borderColor: 'rgb(54, 162, 235)',
+                    fill: false
+                }]
+            },
+            options: {
+                responsive: true,
+                scales: {
+                    x: {
+                        type: 'linear',
+                        position: 'bottom'
+                    }
+                }
+            }
+        });
+    </script>
+</body>
+</html>
+

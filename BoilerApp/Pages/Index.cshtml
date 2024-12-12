@@ -1,0 +1,24 @@
+﻿@page
+@model BoilerApp.Pages.IndexModel
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BoilerApp Login</title>
+</head>
+<body>
+    <h2>Login</h2>
+    <form method="post">
+        <label for="Password">Enter Password:</label>
+        <input type="password" id="Password" name="Password" required>
+        <button type="submit">Submit</button>
+    </form>
+
+    @if (Model.LoginFailed)
+    {
+        <p style="color:red;">Incorrect password. Please try again.</p>
+    }
+</body>
+</html>

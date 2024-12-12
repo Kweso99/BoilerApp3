@@ -1,0 +1,22 @@
+﻿@page
+@model BoilerApp.Pages.RecommendationsModel
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Boiler Recommendations</title>
+</head>
+<body>
+    <h2>Boiler Recommendations</h2>
+
+    <ul>
+        @foreach (var recommendation in Model.Recommendations)
+        {
+            <li>@recommendation</li>
+        }
+    </ul>
+</body>
+</html>
+
